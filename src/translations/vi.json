@@ -1,4 +1,25 @@
 {
+    "home-header": {
+        "speciality": "Chuyên khoa",
+        "searchDoctor": "Tìm bác sĩ theo chuyên khoa",
+        "health-facility": "Cơ sở y tế",
+        "select-room": "Chọn bệnh viện, phòng khám",
+        "doctor": "Bác sĩ",
+        "select-doctor": "Chọn bác sĩ giỏi",
+        "fee": "Gói khám",
+        "check-health": "Khám sức khỏe tổng quát",
+        "support": "Hỗ trợ"
+    },
+    "banner": {
+        "title1": "Nền tảng y tế",
+        "title2": "Chăm sóc sức khỏe toàn diện",
+        "Specialist-examination": "Khám chuyên khoa",
+        "Remote-examination": "Khám từ xa",
+        "General-examination": "Khám tổng quát",
+        "Medical-test": "Xét nghiệm y học",
+        "Mental-health": "Sức khỏe tinh thần",
+        "Dental-checkup": "Khám nha khoa"
+    },
     "common": {
         "add": "Thêm",
         "edit": "Sửa",
