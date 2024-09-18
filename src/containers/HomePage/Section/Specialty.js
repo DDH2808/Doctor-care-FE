@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Specialty.scss";
 import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,47 +7,38 @@ import "slick-carousel/slick/slick-theme.css";
 
 class Specialty extends Component {
   render() {
-    let settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-    };
-
     return (
-      <div className="section-specialty">
-        <div className="specialty-container">
-          <div className="specialty-header">
-            <span className="title-section">Chuyên khoa phổ biến</span>
-            <button className="btn-section">Xem thêm</button>
+      <div className="section-share section-specialty">
+        <div className="section-container">
+          <div className="section-header">
+            <span className="section-title">Chuyên khoa phổ biến</span>
+            <button className="btn-view-more">XEM THÊM</button>
           </div>
-
-          <div className="specialty-body">
-            <Slider {...settings}>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 1</div>
+          <div className="section-body">
+            <Slider {...this.props.settings}>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Sản phụ khoa</div>
               </div>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 2</div>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Nam khoa</div>
               </div>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 3</div>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Cột sống</div>
               </div>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 4</div>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Tiêu hóa</div>
               </div>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 5</div>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Tim mạch</div>
               </div>
-              <div className="specialty-customize">
-                <div className="bg-image" />
-                <div className="bg-image-title">Cơ xương khớp 6</div>
+              <div className="specialty-item">
+                <div className="specialty-img"></div>
+                <div className="specialty-name">Cơ Xương khớp</div>
               </div>
             </Slider>
           </div>
@@ -61,7 +51,6 @@ class Specialty extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
-    language: state.app.language,
   };
 };
 
