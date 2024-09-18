@@ -90,7 +90,7 @@
       flex-direction: column;
 
       .hand-book-back-ground {
-        background: #ffff00;
+        background: #ffcb34;
         margin: 0 10px;
         height: 190px;
 
@@ -113,6 +113,26 @@
           padding: 10px 18px 0 0;
         }
       }
+    }
+  }
+}
+
+// CSS About
+.section-about {
+  height: 550px !important;
+  display: flex;
+
+  .section-body {
+    display: flex;
+    iframe {
+      height: 400px;
+      width: 50%;
+    }
+    .about-description {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin: 0 10px;
     }
   }
 }
