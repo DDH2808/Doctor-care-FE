@@ -49,4 +49,40 @@
       }
     }
   }
+  .bottom-container {
+    background-color: #64b9e5;
+    height: 80px;
+
+    .bottom {
+      margin: 0px 100px;
+      .tab-left {
+        padding: 10px 0;
+        color: #fff;
+      }
+      .tab-right {
+        display: flex;
+        float: right;
+        margin-top: -42px;
+        .social-login-facebook {
+          padding: 0 5px;
+          color: blue;
+          font-size: 44px;
+          margin-top: 0px;
+        }
+        .fa-youtube {
+          border-radius: 2px;
+          margin-top: 2px;
+          font-size: 27px;
+          padding: 0 5px;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgb(246, 66, 66);
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
 }

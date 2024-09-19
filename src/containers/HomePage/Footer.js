@@ -72,6 +72,15 @@ class Footer extends Component {
             </div>
           </div>
         </div>
+        <div className="bottom-container">
+          <div className="bottom">
+            <div className="tab-left">&copy; 2024 BookingCare</div>
+            <div className="tab-right">
+              <i className="fab fa-facebook social-login-facebook"></i>
+              <i className="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

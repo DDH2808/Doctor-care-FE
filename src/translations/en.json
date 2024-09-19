@@ -8,7 +8,8 @@
     "choose-a-good-doctor": "Choose a good doctor",
     "examination-package": "Examination package",
     "general-health-check": "General health check",
-    "support": "Support"
+    "support": "Support",
+    "welcome": "Welcome"
   },
   "banner": {
     "title1": "MEDICAL PLATFORM",
@@ -22,6 +23,15 @@
     "dental-examination": "Dental examination"
   },
 
+  "homepage": {
+    "outstanding-doctor": "Last week's outstanding doctor",
+    "more-info": "Load more",
+    "popular-specialties": "Popular specialties",
+    "outstanding-medical-facility": "Outstanding medical facilities",
+    "handbook": "Handbook",
+    "media-talk-about-us": "Media talk about BookingCare",
+    "content-intro": "The start-up coffee program of VTV1 - Vietnam Television introduces the BookingCare specialist doctor booking platform. The program broadcasts at 6:30 am and replays at 13:05 on February 21, 2018."
+  },
   "common": {
     "add": "Add",
     "edit": "Edit",
@@ -54,12 +64,30 @@
       "system-administrator": {
         "header": "System Administrator",
         "user-manage": "User manage",
-        "product-manage": "Package manage",
+        "user-redux": "Manager user using Redux",
         "register-package-group-or-account": "Register service package for group/account"
       },
       "system-parameter": {
         "header": "System-parameter"
       }
+    },
+    "admin": {
+      "manage-user": "User manager",
+      "manage-doctor": "Doctor manager",
+      "manage-admin": "Admin manager",
+      "crud": "CRUD user",
+      "crud-redux": "CRUD Redux",
+      "manage-clinic": "Clinic manager",
+      "clinic": "Clinic",
+      "specialty": "Specialty",
+      "manage-specialty": "Specialty manage",
+      "handbook": "Handbook",
+      "manage-handbook": "Handbook manage"
+    },
+    "doctor": {
+      "manage-medical-examination-for-doctors": "Manage medical examination for doctors",
+      "manage-schedule": "Manage medical examination plan",
+      "manage-appointment": "Manage medical examination appointments"
     }
   },
   "system": {
@@ -138,6 +166,88 @@
       "remove-assign-success": "Unassign service package to customer successfully",
       "remove-assign-fail": "Fail to unassign service package to customer",
       "sure-delete-assign": "Are you sure to unassign service package to customer?"
+    }
+  },
+  "patient": {
+    "detail-doctor": {
+      "schedule": "Schedule",
+      "non-schedule": "The doctor has no appointment scheduled for this day",
+      "free-book-1": "Choose",
+      "free-book-2": "and book (Free)"
+    },
+    "doctor-extra-info": {
+      "address": "Address clinic",
+      "price": "Price",
+      "view-details": "View details",
+      "hide-details": "Hide detail ",
+      "patient-payment": "The patient can pay the cost in the form of"
+    },
+    "profile-doctor": {
+      "free-book": "Free booking"
+    },
+    "booking-modal": {
+      "information-book-medical-appointment": "Information to book a medical appointment",
+      "last-name": "Last Name",
+      "first-name": "First name",
+      "address": "Address",
+      "email": "Email",
+      "phone-number": "Phone Number",
+      "birthday": "Birthday",
+      "gender": "Gender",
+      "choose-gender": "Choose a gender",
+      "reason": "Reasons for medical examination",
+      "cancel": "Cancel",
+      "confirm": "Confirm"
+    }
+  },
+  "admin": {
+    "manage-user": {
+      "manage-user": "User manager",
+      "add-user": "Add new user",
+      "update-user": "Change info user",
+      "delete-user": "Remove user",
+      "email": "Email",
+      "password": "Password",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "address": "Address",
+      "phone": "Phone Number",
+      "image": "Image",
+      "gender": "Gender",
+      "role-id": "RoleID",
+      "position-id": "PositionID",
+      "save": "Save",
+      "add-new": "Add new",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "update": "Update",
+      "confirm-delete": "You definitely delete the user",
+      "actions": "Actions"
+    },
+    "manage-doctor": {
+      "title": "Add more doctor information",
+      "choose-a-doctor": "Choose a Doctor",
+      "description": "Description",
+      "detail-doctor-info": "Detail Doctor info",
+      "price": "Price of medical examination",
+      "payment": "Payment",
+      "province": "Province/city",
+      "clinic-name": "Clinic name",
+      "clinic-address": "Clinic address",
+      "note": "Note"
+    },
+    "manage-schedule": {
+      "title": "Manage medical examination plan",
+      "choose-doctor": "Choose a doctor",
+      "choose-date": "Choose date",
+      "choose-time": "Choose time",
+      "save": "Save infor"
+    },
+    "manage-specialty": {
+      "manage-specialty": "Specialty manage",
+      "add-new-specialty": "Add new specialty",
+      "name-specialty": "Specialty name",
+      "actions": "Actions"
     }
   }
 }
