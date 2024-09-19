@@ -16,7 +16,7 @@ class Footer extends Component {
               <b>Công ty Cổ phần Công nghệ BookingCare</b>
             </div>
             <div>
-              <i class="fas fa-location-arrow"></i>
+              <i className="fas fa-location-arrow"></i>
               28 Thành Thái, Dịch Vọng, Cầu Giấy, Hà Nội
             </div>
             <div>
