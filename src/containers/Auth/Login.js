@@ -45,15 +45,15 @@ class Login extends Component {
         this.props.userLoginSuccess(data.user);
         console.log("Loging success");
       }
-    } catch (e) {
-      if (e.response) {
-        if (e.response.data) {
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data) {
           this.setState({
-            errMessage: e.response.data.message,
+            errMessage: error.response.data.message,
           });
         }
       }
-      console.log("error message", e.response);
+      console.log("error message", error.response);
     }
   };
 

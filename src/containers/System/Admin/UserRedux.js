@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
-import "./UserRedux.scss";
-import { getAllCodeServices } from "../../../services/userService";
 import { LANGUAGES } from "../../../utils/constant";
+import * as actions from "../../../store/actions/adminAction";
+
 class UserRedux extends Component {
   constructor(props) {
     super(props);
@@ -15,27 +15,33 @@ class UserRedux extends Component {
   }
 
   async componentDidMount() {
-    try {
-      let resGender = await getAllCodeServices("gender");
-      if (resGender && resGender.errCode === 0) {
-        this.setState({
-          genderArr: resGender.data,
-        });
-      }
-      let resRole = await getAllCodeServices("role");
-      if (resRole && resRole.errCode === 0) {
-        this.setState({
-          roleArr: resRole.data,
-        });
-      }
-      let positionArr = await getAllCodeServices("position");
-      if (positionArr && positionArr.errCode === 0) {
-        this.setState({
-          positionArr: positionArr.data,
-        });
-      }
-    } catch (e) {
-      console.log(e);
+    this.props.getGenderStart();
+    this.props.getPositionStart();
+    this.props.getRoleStart();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.genderRedux !== this.props.genderRedux) {
+      let arrGender = this.props.genderRedux;
+      this.setState({
+        genderArr: arrGender,
+        gender: arrGender && arrGender.length > 0 ? arrGender[0].key : "",
+      });
+    }
+    if (prevProps.positionRedux !== this.props.positionRedux) {
+      let arrPosition = this.props.positionRedux;
+      this.setState({
+        positionArr: arrPosition,
+        positionId:
+          arrPosition && arrPosition.length > 0 ? arrPosition[0].key : "",
+      });
+    }
+    if (prevProps.roleRedux !== this.props.roleRedux) {
+      let arrRole = this.props.roleRedux;
+      this.setState({
+        roleArr: arrRole,
+        roleId: arrRole && arrRole.length > 0 ? arrRole[0].key : "",
+      });
     }
   }
 
@@ -167,11 +173,20 @@ class UserRedux extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { language: state.app.language };
+  return {
+    language: state.app.language,
+    genderRedux: state.admin.genders,
+    positionRedux: state.admin.positions,
+    roleRedux: state.admin.roles,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    getGenderStart: () => dispatch(actions.fetchGenderStart()),
+    getPositionStart: () => dispatch(actions.fetchPositionStart()),
+    getRoleStart: () => dispatch(actions.fetchRoleStart()),
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserRedux);
