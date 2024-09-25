@@ -4,6 +4,9 @@ const initialState = {
   genders: [],
   roles: [],
   positions: [],
+  isLoadingGender: false,
+  isLoadingPosition: false,
+  isLoadingRole: false,
 };
 
 const adminReducer = (state = initialState, action) => {

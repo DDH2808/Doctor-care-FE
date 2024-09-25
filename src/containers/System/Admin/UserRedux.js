@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import { LANGUAGES } from "../../../utils/constant";
 import * as actions from "../../../store/actions/adminAction";
+import "./UserRedux.scss";
 
 class UserRedux extends Component {
   constructor(props) {
@@ -11,6 +14,8 @@ class UserRedux extends Component {
       genderArr: [],
       roleArr: [],
       positionArr: [],
+      previewImageUrl: "",
+      isOpen: false,
     };
   }
 
@@ -45,11 +50,29 @@ class UserRedux extends Component {
     }
   }
 
+  handleImageChange = (event) => {
+    let data = event.target.files;
+    if (data) {
+      let file = data[0];
+      let objectUrl = URL.createObjectURL(file);
+      this.setState({
+        previewImageUrl: objectUrl,
+      });
+    }
+  };
+  openPreviewImage = () => {
+    if (!this.state.previewImageUrl) return;
+    this.setState({ isOpen: true });
+  };
+
   render() {
     let language = this.props.language;
     let genders = this.state.genderArr;
-    let role = this.state.roleArr;
-    let position = this.state.positionArr;
+    let roles = this.state.roleArr;
+    let positions = this.state.positionArr;
+    let isLoadingGender = this.props.isLoadingGender;
+    let isLoadingPosition = this.props.isLoadingPosition;
+    let isLoadingRole = this.props.isLoadingRole;
 
     return (
       <div className="user-redux-container">
@@ -59,6 +82,13 @@ class UserRedux extends Component {
             <div className="row">
               <div className="col-12 title">
                 <FormattedMessage id="admin.manage-user.add-user" />
+              </div>
+              <div className="col-12">
+                {isLoadingGender === true &&
+                isLoadingPosition === true &&
+                isLoadingRole === true
+                  ? "Loading Data"
+                  : ""}
               </div>
               <div className="col-3">
                 <label>
@@ -121,9 +151,9 @@ class UserRedux extends Component {
                 </label>
                 <select className="form-control">
                   <option>Choose...</option>
-                  {role &&
-                    role.length > 0 &&
-                    role.map((items, index) => {
+                  {roles &&
+                    roles.length > 0 &&
+                    roles.map((items, index) => {
                       return (
                         <option key={index} value={items.valueVi}>
                           {language === LANGUAGES.VI
@@ -140,9 +170,9 @@ class UserRedux extends Component {
                 </label>
                 <select className="form-control">
                   <option>Choose...</option>
-                  {position &&
-                    position.length > 0 &&
-                    position.map((items, index) => {
+                  {positions &&
+                    positions.length > 0 &&
+                    positions.map((items, index) => {
                       return (
                         <option key={index} value={items.valueVi}>
                           {language === LANGUAGES.VI
@@ -157,7 +187,29 @@ class UserRedux extends Component {
                 <label>
                   <FormattedMessage id="admin.manage-user.image" />
                 </label>
-                <input type="text" className="form-control" />
+                <div className="image-container">
+                  <span className="upload-image">
+                    <input
+                      type="file"
+                      id="load-image"
+                      hidden
+                      onChange={(event) => this.handleImageChange(event)}
+                    />
+                    <label className="btn-upload" htmlFor="load-image">
+                      Tải ảnh
+                      <i className="fas fa-upload"></i>
+                    </label>
+                  </span>
+                  <div
+                    className="preview-image"
+                    style={{
+                      backgroundImage: `url(${this.state.previewImageUrl})`,
+                    }}
+                    onClick={() => {
+                      this.openPreviewImage();
+                    }}
+                  ></div>
+                </div>
               </div>
               <div className="col-12">
                 <button className="btn btn-primary mt-3">
@@ -167,6 +219,12 @@ class UserRedux extends Component {
             </div>
           </div>
         </div>
+        {this.state.isOpen === true && (
+          <Lightbox
+            mainSrc={this.state.previewImageUrl}
+            onCloseRequest={() => this.setState({ isOpen: false })}
+          />
+        )}
       </div>
     );
   }
@@ -178,6 +236,10 @@ const mapStateToProps = (state) => {
     genderRedux: state.admin.genders,
     positionRedux: state.admin.positions,
     roleRedux: state.admin.roles,
+
+    isLoadingGender: state.admin.isLoadingGender,
+    isLoadingPosition: state.admin.isLoadingPosition,
+    isLoadingRole: state.admin.isLoadingRole,
   };
 };
 
