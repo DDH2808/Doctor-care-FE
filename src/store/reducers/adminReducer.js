@@ -96,10 +96,10 @@ const adminReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-    case actionTypes.UPDATE_USER_SUCCESS:
+    case actionTypes.EDIT_USER_SUCCESS:
       state.updateUserNotifications = action.data;
       return { ...state };
-    case actionTypes.UPDATE_USER_FAILED:
+    case actionTypes.EDIT_USER_FAILED:
       state.updateUserNotifications = action.data;
       return { ...state };
     default:

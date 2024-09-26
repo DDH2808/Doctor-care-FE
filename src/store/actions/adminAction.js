@@ -147,15 +147,14 @@ export const deleteAUser = (userId) => {
       if (response && response.errCode === 0) {
         toast.success("Delete the user succeed!");
         dispatch(deleteUserSuccess());
-        dispatch(fetchAllUserStart("ALL"));
+        dispatch(fetchAllUserStart());
       } else {
-        toast.success("Delete the user error!");
+        toast.error("Delete the user error!");
         dispatch(deleteUserFailed());
       }
     } catch (error) {
-      toast.success("Delete the user error!");
+      toast.error("Delete the user error!");
       dispatch(deleteUserFailed());
-      console.log("Delete user redux failed", error);
     }
   };
 };
@@ -170,44 +169,27 @@ export const deleteUserFailed = () => ({
 
 export const editUserStart = (data) => {
   return async (dispatch, getState) => {
-    let response = await editUserService(data);
     try {
+      let response = await editUserService(data);
       if (response && response.errCode === 0) {
-        dispatch(
-          editUserSuccess({
-            vi: "Cập nhật dùng thành công",
-            en: "Update user success!",
-            errType: "success",
-          })
-        );
-        dispatch(fetchAllUserStart("ALL"));
+        toast.success("Update the user succeed!");
+        dispatch(editUserSuccess());
+        dispatch(fetchAllUserStart());
       } else {
-        console.log("cn2");
-        dispatch(
-          editUserFailed({
-            vi: "Cập nhật dùng không thành công",
-            en: "Update user failed!",
-            errType: "error",
-          })
-        );
+        toast.error("Update the user error!");
+        dispatch(editUserFailed());
       }
     } catch (error) {
-      dispatch(
-        editUserFailed({
-          vi: "Cập nhật dùng không thành công",
-          en: "Update user failed!",
-          errType: "error",
-        })
-      );
-      console.log("Delete user redux failed", error);
+      toast.error("Update the user error!");
+      dispatch(editUserFailed());
     }
   };
 };
 export const editUserSuccess = (data) => ({
-  type: actionTypes.UPDATE_USER_SUCCESS,
+  type: actionTypes.EDIT_USER_SUCCESS,
   data: data,
 });
 export const editUserFailed = (data) => ({
-  type: actionTypes.UPDATE_USER_FAILED,
+  type: actionTypes.EDIT_USER_FAILED,
   data: data,
 });
