@@ -2,10 +2,7 @@ import actionTypes from "../actions/actionTypes";
 
 const initialState = {
   users: [],
-  getUserNotifications: {},
-  createUserNotifications: {},
-  deleteUserNotifications: {},
-  updateUserNotifications: {},
+  topDoctors: [],
 
   genders: [],
   roles: [],
@@ -86,22 +83,18 @@ const adminReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-    case actionTypes.DELETE_USER_SUCCESS:
-      state.deleteUserNotifications = action.data;
+
+    case actionTypes.FETCH_TOP_DOCTORS_SUCCESS:
+      state.topDoctors = action.dataDoctors;
       return {
         ...state,
       };
-    case actionTypes.DELETE_USER_FAILED:
-      state.deleteUserNotifications = action.data;
+    case actionTypes.FETCH_TOP_DOCTORS_FAILED:
+      state.users = [];
       return {
         ...state,
       };
-    case actionTypes.EDIT_USER_SUCCESS:
-      state.updateUserNotifications = action.data;
-      return { ...state };
-    case actionTypes.EDIT_USER_FAILED:
-      state.updateUserNotifications = action.data;
-      return { ...state };
+      
     default:
       return state;
   }
