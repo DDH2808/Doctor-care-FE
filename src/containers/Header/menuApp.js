@@ -16,7 +16,7 @@ export const adminMenu = [
       {
         // Quản lý bác sĩ
         name: "menu.admin.manage-doctor",
-        link: "/system/user-doctor",
+        link: "/system/manage-doctor",
       },
       {
         // Quản lý admin
