@@ -4,6 +4,7 @@ import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from "../../../utils";
+import { withRouter } from "react-router";
 
 class OutStandingDoctor extends Component {
   constructor(props) {
@@ -24,6 +25,12 @@ class OutStandingDoctor extends Component {
   componentDidMount() {
     this.props.loadTopDoctors();
   }
+
+  handleViewDetailDoctor = (doctor) => {
+    if (this.props.history) {
+      this.props.history.push(`/detail-doctor/${doctor.id}`);
+    }
+  };
 
   render() {
     let arrDoctors = this.state.arrDoctors;
@@ -54,7 +61,11 @@ class OutStandingDoctor extends Component {
                   let nameVi = `${item.positionData.valueVi}, ${item.lastName} ${item.firstName}`;
                   let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                   return (
-                    <div className="outstanding-doctor-item" key={index}>
+                    <div
+                      className="outstanding-doctor-item"
+                      onClick={() => this.handleViewDetailDoctor(item)}
+                      key={index}
+                    >
                       <div
                         className="outstanding-doctor-img"
                         style={{
@@ -80,48 +91,6 @@ class OutStandingDoctor extends Component {
                     </div>
                   );
                 })}
-              {/* <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Bác sĩ Chuyên khoa II Trần Minh Khuyên
-                </div>
-                <div className="outstanding-doctor-facility">Nam Khoa</div>
-              </div>
-              <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Phó Giáo sư, Tiến sĩ, Bác sĩ cao cấp Nguyễn Duy Hưng
-                </div>
-                <div className="outstanding-doctor-facility">Da liễu</div>
-              </div>
-              <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Bác sĩ chuyên khoa II Trần Thị Hoài Hương
-                </div>
-                <div className="outstanding-doctor-facility">Da liễu</div>
-              </div>
-              <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Giáo sư, Tiến sĩ Hà Văn Quyết
-                </div>
-                <div className="outstanding-doctor-facility">Tiêu hóa</div>
-              </div>
-              <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Bác sĩ Chuyên khoa II Trần Minh Khuyên
-                </div>
-                <div className="outstanding-doctor-facility">Nam Khoa</div>
-              </div>
-              <div className="outstanding-doctor-item">
-                <div className="outstanding-doctor-img"></div>
-                <div className="outstanding-doctor-name">
-                  Bác sĩ Chuyên khoa II Trần Minh Khuyên
-                </div>
-                <div className="outstanding-doctor-facility">Nam Khoa</div>
-              </div> */}
             </Slider>
           </div>
         </div>
@@ -144,4 +113,6 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(OutStandingDoctor)
+);
