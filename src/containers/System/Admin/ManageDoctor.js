@@ -115,10 +115,14 @@ class ManageDoctor extends Component {
     let { hasOldData } = this.state;
     return (
       <div className="manage-doctor-container">
-        <div className="manage-doctor-title">Tạo thêm thông tin doctors</div>
+        <div className="manage-doctor-title">
+          <FormattedMessage id="admin.manage-doctor.title" />
+        </div>
         <div className="more-infor">
           <div className="content-left form-group">
-            <label>Chọn bác sĩ</label>
+            <label>
+              <FormattedMessage id="admin.manage-doctor.choose-a-doctor" />
+            </label>
             <Select
               value={this.state.selectedOption}
               onChange={this.handleChangeSelect}
@@ -126,7 +130,9 @@ class ManageDoctor extends Component {
             />
           </div>
           <div className="content-right">
-            <label>Thông tin giới thiệu:</label>
+            <label>
+              <FormattedMessage id="admin.manage-doctor.description" />
+            </label>
             <textarea
               className="form-control"
               rows="4"
@@ -138,6 +144,9 @@ class ManageDoctor extends Component {
           </div>
         </div>
         <div className="manage-doctor-editor">
+          <label>
+            <FormattedMessage id="admin.manage-doctor.detail-doctor-info" />
+          </label>
           <MdEditor
             style={{ height: "500px" }}
             renderHTML={(text) => mdParser.render(text)}
@@ -154,9 +163,13 @@ class ManageDoctor extends Component {
           }
         >
           {hasOldData === true ? (
-            <span>Lưu thông tin</span>
+            <span>
+              <FormattedMessage id="admin.manage-doctor.save" />
+            </span>
           ) : (
-            <span>Tạo thông tin</span>
+            <span>
+              <FormattedMessage id="admin.manage-doctor.create" />
+            </span>
           )}
         </button>
       </div>

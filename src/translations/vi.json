@@ -236,7 +236,9 @@
       "province": "Tỉnh/ thành",
       "clinic-name": "Tên phòng khám",
       "clinic-address": "Địa chỉ phòng khám",
-      "note": "Ghi chú"
+      "note": "Ghi chú",
+      "save": "Lưu thông tin",
+      "create": "Tạo thông tin"
     },
     "manage-schedule": {
       "title": "Quản lí kế hoạch khám bệnh",
