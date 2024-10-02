@@ -171,9 +171,9 @@
   "patient": {
     "detail-doctor": {
       "schedule": "Schedule",
-      "non-schedule": "The doctor has no appointment scheduled for this day",
-      "free-book-1": "Choose",
-      "free-book-2": "and book (Free)"
+      "non-schedule": "There are no available appointments at this time. Please try later!",
+      "choose": "Choose",
+      "free-book": "and book (Free)"
     },
     "doctor-extra-info": {
       "address": "Address clinic",

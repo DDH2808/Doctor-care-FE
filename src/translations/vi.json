@@ -173,9 +173,9 @@
   "patient": {
     "detail-doctor": {
       "schedule": "Lịch khám",
-      "non-schedule": "Bác sĩ không có lịch khám vào ngày này",
-      "free-book-1": "Chọn",
-      "free-book-2": "và đặt miễn phí(0 đồng)"
+      "non-schedule": "Không có lịch hẹn trong thời gian này, vui lòng chọn thời gian khác!",
+      "choose": "Chọn",
+      "free-book": "và đặt miễn phí (0 đồng)"
     },
     "doctor-extra-info": {
       "address": "Địa chỉ khám",
