@@ -177,10 +177,10 @@
     },
     "doctor-extra-info": {
       "address": "Address clinic",
-      "price": "Price",
+      "price": "Price: ",
       "view-details": "View details",
       "hide-details": "Hide detail ",
-      "patient-payment": "The patient can pay the cost in the form of"
+      "patient-payment": "The patient can pay the cost in the form of: "
     },
     "profile-doctor": {
       "free-book": "Free booking"

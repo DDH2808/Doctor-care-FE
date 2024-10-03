@@ -191,7 +191,7 @@ class ManageDoctor extends Component {
         selectedPrice = listPrice.find((item) => {
           return item && item.value === priceId;
         });
-        selectedProvince = listPayment.find((item) => {
+        selectedProvince = listProvince.find((item) => {
           return item && item.value === provinceId;
         });
       }

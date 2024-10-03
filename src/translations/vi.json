@@ -179,10 +179,10 @@
     },
     "doctor-extra-info": {
       "address": "Địa chỉ khám",
-      "price": "Giá khám",
+      "price": "Giá khám: ",
       "view-details": "Xem chi tiết",
       "hide-details": "Ẩn chi tiết",
-      "patient-payment": "Người bệnh có thể thanh toán chi phí bằng hình thức"
+      "patient-payment": "Người bệnh có thể thanh toán chi phí bằng hình thức: "
     },
     "profile-doctor": {
       "free-book": "Miễn phí đặt lịch"
