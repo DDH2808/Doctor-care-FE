@@ -157,6 +157,7 @@ class ManageDoctor extends Component {
 
   handleChangeSelect = async (selectedOption) => {
     this.setState({ selectedOption });
+    let { listPayment, listPrice, listProvince } = this.state;
     let response = await getDetailInforDoctor(selectedOption.value);
     if (
       response &&
@@ -165,11 +166,47 @@ class ManageDoctor extends Component {
       response.data.Markdown
     ) {
       let markdown = response.data.Markdown;
+
+      let addressClinic = "",
+        nameClinic = "",
+        note = "",
+        paymentId = "",
+        priceId = "",
+        provinceId = "",
+        selectedPayment = "",
+        selectedPrice = "",
+        selectedProvince = "";
+
+      if (response.data.Doctor_Infor) {
+        addressClinic = response.data.Doctor_Infor.addressClinic;
+        nameClinic = response.data.Doctor_Infor.nameClinic;
+        note = response.data.Doctor_Infor.note;
+        paymentId = response.data.Doctor_Infor.paymentId;
+        priceId = response.data.Doctor_Infor.priceId;
+        provinceId = response.data.Doctor_Infor.provinceId;
+
+        selectedPayment = listPayment.find((item) => {
+          return item && item.value === paymentId;
+        });
+        selectedPrice = listPrice.find((item) => {
+          return item && item.value === priceId;
+        });
+        selectedProvince = listPayment.find((item) => {
+          return item && item.value === provinceId;
+        });
+      }
+
       this.setState({
         contentHTML: markdown.contentHTML,
         contentMarkdown: markdown.contentMarkdown,
         description: markdown.description,
         hasOldData: true,
+        addressClinic: addressClinic,
+        nameClinic: nameClinic,
+        note: note,
+        selectedPayment: selectedPayment,
+        selectedPrice: selectedPrice,
+        selectedProvince: selectedProvince,
       });
     } else {
       this.setState({
@@ -177,6 +214,9 @@ class ManageDoctor extends Component {
         contentMarkdown: "",
         description: "",
         hasOldData: false,
+        addressClinic: "",
+        nameClinic: "",
+        note: "",
       });
     }
   };
