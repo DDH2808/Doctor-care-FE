@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import "./BookingModal.scss";
 import { Modal } from "reactstrap";
+import ProfileDoctor from "../ProfileDoctor";
+import _ from "lodash";
 
 class BookingModal extends Component {
   constructor(props) {
@@ -18,9 +20,12 @@ class BookingModal extends Component {
   }
 
   render() {
-    // toggle={}
     let { isOpenModal, closeBookingClose, dataTime } = this.props;
-
+    let doctorId = "";
+    if (dataTime && !_.isEmpty(dataTime)) {
+      doctorId = dataTime.doctorId;
+    }
+    console.log("data time: ", doctorId);
     return (
       <Modal
         isOpen={isOpenModal}
@@ -37,9 +42,9 @@ class BookingModal extends Component {
             </span>
           </div>
           <div className="booking-modal-body">
-            {/* {JSON.stringify(dataTime)} */}
-            <div className="doctor-infor"></div>
-            <div className="price">Gía khám 200.000VND</div>
+            <div className="doctor-infor">
+              <ProfileDoctor doctorId={doctorId} />
+            </div>
             <div className="row">
               <div className="col-6 form-group">
                 <label>Họ tên</label>
@@ -73,10 +78,10 @@ class BookingModal extends Component {
           </div>
           <div className="booking-modal-footer">
             <button className="btn-booking-confirm" onClick={closeBookingClose}>
-              Xác nhận
+              <FormattedMessage id="patient.booking-modal.confirm" />
             </button>
             <button className="btn-booking-cancel" onClick={closeBookingClose}>
-              Cancel
+              <FormattedMessage id="patient.booking-modal.cancel" />
             </button>
           </div>
         </div>
