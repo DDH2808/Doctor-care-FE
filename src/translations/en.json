@@ -187,6 +187,7 @@
     },
     "booking-modal": {
       "information-book-medical-appointment": "Information to book a medical appointment",
+      "fullName": "Full name",
       "last-name": "Last Name",
       "first-name": "First name",
       "address": "Address",

@@ -102,7 +102,6 @@ class DoctorSchedule extends Component {
       isOpenModalBooking: true,
       dataScheduleTimeModal: time,
     });
-    console.log("time: ", time);
   };
 
   closeBookingClose = () => {

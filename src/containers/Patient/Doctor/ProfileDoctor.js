@@ -82,8 +82,6 @@ class ProfileDoctor extends Component {
       nameEn = `${dataProfile.positionData.valueEn}, ${dataProfile.firstName} ${dataProfile.lastName}`;
     }
 
-    console.log("data time 123: ", dataTime);
-
     return (
       <div className="profile-doctor-container">
         <div className="intro-doctor">

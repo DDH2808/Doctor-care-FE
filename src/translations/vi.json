@@ -189,6 +189,7 @@
     },
     "booking-modal": {
       "information-book-medical-appointment": "Thông tin đặt lịch khám bệnh",
+      "fullName": "Họ và tên",
       "last-name": "Họ",
       "first-name": "Tên",
       "address": "Địa chỉ",
