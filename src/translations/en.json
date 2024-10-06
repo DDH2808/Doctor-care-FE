@@ -235,6 +235,8 @@
       "province": "Province/city",
       "clinic-name": "Clinic name",
       "clinic-address": "Clinic address",
+      "specialty": "Specialty",
+      "select-clinic": "Clinic",
       "note": "Note",
       "save": "Save infor",
       "create": "Create infor"
