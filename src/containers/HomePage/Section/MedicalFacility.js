@@ -2,9 +2,34 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FormattedMessage } from "react-intl";
 import Slider from "react-slick";
+import { getAllClinic } from "../../../services/userService";
+import { withRouter } from "react-router";
 
 class Handbook extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dataClinics: [],
+    };
+  }
+
+  async componentDidMount() {
+    let response = await getAllClinic();
+    if (response && response.errCode === 0) {
+      this.setState({
+        dataClinics: response.data ? response.data : [],
+      });
+    }
+  }
+
+  handleViewDetailClinic = (clinic) => {
+    if (this.props.history) {
+      this.props.history.push(`/detail-clinic/${clinic.id}`);
+    }
+  };
+
   render() {
+    let { dataClinics } = this.state;
     return (
       <div className="section-share section-medical">
         <div className="section-container">
@@ -14,30 +39,23 @@ class Handbook extends Component {
           </div>
           <div className="section-body">
             <Slider {...this.props.settings}>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">Bệnh viện Việt Đức</div>
-              </div>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">Bệnh viện Chợ Rẫy</div>
-              </div>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">BV ĐH Y Dược</div>
-              </div>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">Bệnh viện 7A</div>
-              </div>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">Bệnh viện Quân Y 175</div>
-              </div>
-              <div className="medical-item">
-                <div className="medical-img"></div>
-                <div className="medical-name">Khoa Y ĐH Quốc Gia</div>
-              </div>
+              {dataClinics &&
+                dataClinics.length > 0 &&
+                dataClinics.map((item, index) => {
+                  return (
+                    <div
+                      className="medical-item"
+                      key={index}
+                      onClick={() => this.handleViewDetailClinic(item)}
+                    >
+                      <div
+                        className="medical-img"
+                        style={{ backgroundImage: `url(${item.image})` }}
+                      ></div>
+                      <div className="medical-name">{item.name}</div>
+                    </div>
+                  );
+                })}
             </Slider>
           </div>
         </div>
@@ -56,4 +74,6 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Handbook);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Handbook)
+);
