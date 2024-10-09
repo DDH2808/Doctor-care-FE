@@ -87,6 +87,7 @@
     "doctor": {
       "manage-medical-examination-for-doctors": "Manage medical examination for doctors",
       "manage-schedule": "Manage Doctor's schedule",
+      "manage-patient": "Manage Doctor's patient",
       "manage-appointment": "Manage medical examination appointments"
     }
   },

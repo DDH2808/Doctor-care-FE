@@ -71,12 +71,17 @@ export const adminMenu = [
 
 export const doctorMenu = [
   {
-    // Quản lý kế hoạch khám bênh của bác sỹ
+    // Quản lý kế hoạch khám bệnh của bác sỹ
     name: "menu.admin.manage-user",
     menus: [
       {
         name: "menu.doctor.manage-schedule",
         link: "/doctor/manage-schedule",
+      },
+      {
+        // Quản lý bệnh nhân khám bệnh của bác sỹ
+        name: "menu.doctor.manage-patient",
+        link: "/doctor/manage-patient",
       },
     ],
   },
